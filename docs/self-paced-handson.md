@@ -2,13 +2,25 @@
 
 プロンプトベースのモデルを体験してみましょう。ここでは、GPT-3.5のモデルを利用して、チャット（会話）形式でAzure OpenAIを試す手順について紹介します。
 
+## 注意事項
+
+Azure OpenAI Serviceはトークン数などに制限があります。本ハンズオンでは、みなさんに利用いただけるように環境を用意しておりますが、複数回の開催を予定しており多くの方に利用いただきたいので、節度を持った利用をお願いいたします。（とはいえ、故意に多量の入力をしたり、パラメータを上げすぎたりしなければ、大丈夫です。）
+
+詳しくは、下記ドキュメントをご参考ください。
+
+- [Azure OpenAI Service のクォータと制限 - Azure Cognitive Services | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/cognitive-services/openai/quotas-limits)
+
 ## Azure OpenAI Studioを開く
 
-https://oai.azure.com/
+まず、Azure OpenAI Studioを開きましょう。
+
+- https://oai.azure.com/
+
+※ 本来、Azure OpenAI Serviceを利用するには、Azureポータルなどからそのリソースをデプロイする必要があります。本ハンズオンでは、すでにデプロイ済みかつ会場の端末はAzureアカウントにサインイン済みなので、Azure OpenAI Studioをひらいてすぐ利用できます。
 
 ## デプロイを確認する
 
-Azure OpenAI Serviceを利用するにはまず、モデルをデプロイする必要があります。
+次に、Azure OpenAI Serviceを利用するにはまず、モデルをデプロイする必要があります。
 
 本ハンズオンでは、すでにデプロイを済ませてあるので、Azure OpenAI Studioの「デプロイ」画面を開き、GPT-3.5のモデルがデプロイされていることを確認しておきましょう。
 
@@ -69,6 +81,15 @@ ChatGPTのプレイグランドでは、「アシスタント セットアップ
 ## REST APIで実行してみる
 
 - キーの取得
-― エンドポイントの確認
+- エンドポイントの確認
 - ヘッダの組み立て
 - 実行
+
+----
+
+## [備考] 環境構築
+
+- ブラウザ
+- Azureアカウント
+  - Azure OpenAI利用申請済みであること
+- Postman
