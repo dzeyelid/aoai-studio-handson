@@ -202,6 +202,10 @@ Azure OpenAI Serviceは、REST APIから利用できます。Azure OpenAI Studio
 
 これらの繰り返しで、GPT-3.5を用いた会話を実装することができます。
 
+詳しくは、リファレンスをご確認ください。
+
+- [Azure OpenAI Service の REST API リファレンス - Azure OpenAI | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/cognitive-services/openai/reference)
+
 ----
 
 ## [備考] 環境構築
