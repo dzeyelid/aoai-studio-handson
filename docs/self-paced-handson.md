@@ -24,7 +24,7 @@ Azure OpenAI Serviceはトークン数などに制限があります。本ハン
 
 本ハンズオンでは、すでにデプロイを済ませてあるので、Azure OpenAI Studioの「デプロイ」画面を開き、GPT-3.5のモデル（「モデル名」に`gpt35-turbo`と表示されている）のデプロイがあることを確認しておきましょう。
 
-![Azure OpenAI Studioでデプロイを確認する](./images/aoai-studio/deployment_001.png)
+![Azure OpenAI Studioでデプロイを確認する](./images/aoai-studio/deployment-001.png)
 
 ## モデルを試す
 
@@ -33,6 +33,8 @@ Azure OpenAI Serviceはトークン数などに制限があります。本ハン
 まず、Azure OpenAI Studioで「チャット」画面を開きます。
 
 ChatGPTのプレイグラウンドでは、「アシスタント セットアップ」「チャット セッション」「Configuration」のパネルがあります。
+
+![](./images/aoai-studio/chat-playground-panels.png)
 
 さいしょに、「Configuration」の「デプロイ」の選択が、前述で確認したものであることを確認してください。もし異なる場合は、選択し直してください。
 
@@ -51,9 +53,13 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 
 さし障りのない応答が返ってきたかと思います。
 
+![さし障りのない応答が返ってくる](./images/aoai-studio/chat-playground-empty-system-message-conversation-001.png)
+
 また、「パイとは？」の後に「どんな時に使うの？」と問いかけると、直前のパイに関する応答が得られたと思います。このように、会話に特化したモデルでは会話の流れを考慮して応答を返させることができます。
 
-それでは、「システム メッセージ」でアシスタントの振る舞いを指定してみましょう。
+![直前の会話も考慮される](./images/aoai-studio/chat-playground-empty-system-message-conversation-002.png)
+
+それでは、アシスタントの振る舞いを指定してみましょう。「システム メッセージ」に下記を入力して、「変更の保存」を行います。
 
 ```
 あなたは、数学について詳しいアシスタントです。
@@ -68,6 +74,10 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 
 数学について詳しい会話になりましたか？
 
+![数学について詳しいアシスタントとして応答される](./images/aoai-studio/chat-playground-as-math-assistant-conversation-001.png)
+
+![会話が続いても「システム メッセージ」で指定した振る舞いが適用される](./images/aoai-studio/chat-playground-as-math-assistant-conversation-002.png)
+
 なお、必ずしもシステム メッセージに忠実な応答が返されるわけではありませんが、アシスタントの振る舞いを細かく指示できることが確認できたかと思います。
 
 ## トークンについて確認する
@@ -80,7 +90,10 @@ Azure OpenAI Serviceでは、1リクエストにつき利用できる「トー�
 
 次に、パラメータを試してみましょう。
 
+![パラメータについて確認する](./images/aoai-studio/chat-playground-configuration-parameters.png)
+
 「Configuration」の「パラメータ」タブを開いてみます。設定できるパラメータのうち、主要なものを紹介します。
+
 
 | パラメータ | 説明 |
 |----|----|
@@ -159,7 +172,7 @@ Azure OpenAI Serviceは、REST APIから利用できます。Azure OpenAI Studio
   messages: [
     ...
     {
-      "role": "user",
+      "role": "user",
       "content": "ギネス記録は？"
     }
   ],
@@ -174,7 +187,15 @@ Azure OpenAI Serviceは、REST APIから利用できます。Azure OpenAI Studio
 | 認証 | 「API Key」を選択し、「Key」に`api-key`、「Value」にコピーしたキー、「Add to」に「Header」を指定する | |
 | リクエストボディ（JSON） | サンプルコードをもとに組み立てたJSON |
 
+![POSTでエンドポイントを指定する](./images/postman/post-request-001.png)
+
+![認証でapi-keyを指定する](./images/postman/post-request-api-key-001.png)
+
+![リクエストボディにJSONで指定する](./images/postman/post-request-request-body-json-001.png)
+
 すると、以下のようなレスポンスを得られます。`choices.[].message.role`に`assistant`が指定され、`choices.[].message.content`に応答が含まれているのがわかります。
+
+![レスポンスを得られる](./images/postman/post-request-response-001.png)
 
 ```json
 {
