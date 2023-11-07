@@ -21,22 +21,17 @@ Azure OpenAIは、OpenAIに比べ、以下の点が特徴です。
 
 | 種類 | モデル ファミリ | 説明 | モデルの例 |
 |----|----|----|----|
-| チャット（会話） | GPT-4 | GPT-3.5 を基に改善され、自然言語とコードを生成するだけでなく、理解できるモデルのセット | `gpt-4-32k`, `gpt-4` |
-| チャット（会話） | ChatGPT(GPT-3.5) | 会話型インタフェース用に設計されたモデル | `gpt-35-turbo` |
-| 入力候補 | GPT-3 | 自然言語を理解し、生成できるモデルのシリーズ。これには、新しい ChatGPT(GPT-3.5) モデルが含まれます）| `text-davinci-003`, `text-curie-001`, `text-babbage-001`, `text-ada-001` |
-| 入力候補 | Codex | 自然言語のコードへの変換を含め、コードを理解し、生成できるモデルのシリーズ | `code-davinci-002`, `code-cushman-001` |
-| 画像生成 | DALL-E | 自然言語からオリジナルの画像を生成できるモデルのシリーズ | 割愛 |
-| 埋め込み | Embeddings | embeddings（埋め込み）を理解し、使用できるモデルのセット。embeddingsとは、機会学習モデルとアルゴリズムにおいて簡単に利用できる特殊な形式のデータ表現を指す。 | 割愛 |
+| チャット（会話） | GPT-4 | GPT-3.5 を基に改善され、自然言語とコードを理解し、生成できるモデルのセット | `gpt-4-32k`, `gpt-4` |
+| チャット（会話） | ChatGPT(GPT-3.5) | GPT-3 を基に改善され、自然言語とコードを理解し、生成できるモデルのセット | `gpt-35-turbo-16k`, `gpt-35-turbo`, `gpt-35-turbo-instruct` |
+| 埋め込み | Embeddings | テキストを数値ベクトル形式に変換して、テキストの類似性を促進できるモデルのセット | `text-embedding-ada-002` |
+| 画像生成 | DALL-E | 自然言語からオリジナルの画像を生成できるモデルのシリーズ（プレビュー） | 割愛 |
+| 音声 | Whisper | 音声を文字起こしできるモデル（プレビュー） | 割愛 |
 
-モデルは、`{capability}-{family}-{identifier}`という名前付け規則のもと定義されています。
+#### 備考: 旧モデル
 
-| 要素 | 説明 |
-|----|----|
-| `capability` | モデルを指す。GPT-3なら`text`、Codexなら`code`、embeddingsなら`text-embedding`、`text-search`、`text-similarity`など |
-| `family` | 相対ファミリを指す。`ada`, `baggage`, `curie`, `davinci`など、アルファベット順に世代が示され、後ろであるほど能力が高い |
-| `identifier` | モデルのバージョン識別子 |
+現在（2023年11月）はモデルが一新されています。旧モデルについては下記ドキュメントをご参照ください。
 
-※ embeddingsの場合、`{capability}-{family}[-{input-type}]-{identifier}`という名前付け規則が適用されており、`input-type`は`doc`、`query`などが指定されます。
+- [Azure OpenAI Service レガシ モデル - Azure OpenAI | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/ai-services/openai/concepts/legacy-models)
 
 ### APIの種類
 
@@ -44,10 +39,12 @@ Azure OpenAIは、OpenAIに比べ、以下の点が特徴です。
 
 | 種類 | API |
 |----|----|
-| チャット（会話） | Chat completions |
 | 入力候補 | Completions |
-| 画像生成 | Image geenration |
 | 埋め込み | Embeddings |
+| チャット（会話） | Chat completions |
+| チャット入力候補の拡張機能（独自データの利用など） | Completions extensions |
+| 画像生成 | Image geenration |
+| 音声の文字起こし | Speech to text |
 
 詳しくは、公式ドキュメントをご参照ください。
 
@@ -55,4 +52,9 @@ Azure OpenAIは、OpenAIに比べ、以下の点が特徴です。
 
 ## セルフペースド ハンズオン
 
-セルフペースド ハンズオンは、[docs/self-paced-handson.md](./docs/self-paced-handson.md)にお進みください。
+Azure OpenAI Studioを学ぶためのセルフペースド ハンズオンを用意しています。
+
+| シナリオ | 資料 |
+|----|----|
+| 基本 | [docs/self-paced-handson.md](./docs/self-paced-handson.md) |
+| 独自データを利用する | [docs/add-your-data/self-paced-handson.md](./docs/add-your-data/self-paced-handson.md) |
