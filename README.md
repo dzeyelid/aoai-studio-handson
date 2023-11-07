@@ -56,5 +56,5 @@ Azure OpenAI Studioを学ぶためのセルフペースド ハンズオンを用
 
 | シナリオ | 資料 |
 |----|----|
-| 基本 | [docs/self-paced-handson.md](./docs/self-paced-handson.md) |
+| 基本 | [docs/basic/self-paced-handson.md](./docs/basic/self-paced-handson.md) |
 | 独自データを利用する | [docs/add-your-data/self-paced-handson.md](./docs/add-your-data/self-paced-handson.md) |
