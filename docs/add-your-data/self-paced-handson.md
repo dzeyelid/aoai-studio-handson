@@ -78,7 +78,7 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 
 「データ ソースを選択する」プルダウンで「Upload files」を選択します。
 
-![「データ ソースを選択する」プルダウンで「Upload files」を選択する](./images/aoai-studio/add-data-source-002.png)
+<img src="./images/aoai-studio/add-data-source-002.png" alt="「データ ソースを選択する」プルダウンで「Upload files」を選択する" width="640">
 
 まず前半の項目を入力しましょう。
 
@@ -91,14 +91,10 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 
 ここで必要な「サブスクリプション」「Azure　Blob ストレージ」「Azure AI Search」はすでに用意してあるので、それぞれ選択できるものを選んでください。
 
-![「サブスクリプション」「Azure　Blob ストレージ」「Azure AI Search」「インデックス名」を入力する](./images/aoai-studio/add-data-source-003.png)
-
-{% note %}
+<img src="./images/aoai-studio/add-data-source-003.png" alt="「サブスクリプション」「Azure　Blob ストレージ」「Azure AI Search」「インデックス名」を入力する" width="640">
 
 **Note:** もし、Azure Blob ストレージの欄の下に「Azure OpenAI には、このリソースにアクセスするためのアクセス許可が必要です」と表示される場合は「CORSをオンにする」ボタンを選択してアクセスを許可してください。
-![Azure Blob ストレージのCORSを有効にする](./images/aoai-studio/enable-storage-account-cors.png)
-
-{% endnote %}
+<img src="./images/aoai-studio/enable-storage-account-cors.png" alt="Azure Blob ストレージのCORSを有効にする" width="600">
 
 つぎに、ベクトル検索について項目を入力します。
 
@@ -112,14 +108,10 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 
 「ファイルのアップロード」では、端末の「Downloads（ダウンロード）」にある「2023shigengomihinmoku.pdf」をドラッグ アンド ドロップ（または、「ファイルを参照する」でファイルを選択）し、「ファイルのアップロード」ボタンを選択します。
 
-![追加するファイルをアップロードする](./images/aoai-studio/add-data-source-005.png)
-
-{% note %}
+<img src="./images/aoai-studio/add-data-source-005.png" alt="追加するファイルをアップロードする" width="640">
 
 **Note:** 品川区の以下のページから「資源・ごみ品目一覧」を利用しています。
 - [資源・ごみ品目一覧｜品川区](https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-kateigomi/20191127174730.html)
-
-{% endnote %}
 
 ファイルのアップロードが終わったら、「次へ」ボタンを選択します。
 
@@ -132,17 +124,17 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 
 入力できたら、「次へ」ボタンを選択します。
 
-![「検索の種類」にベクトルを指定する](./images/aoai-studio/add-data-source-007.png)
+<img src="./images/aoai-studio/add-data-source-007.png" alt="「検索の種類」にベクトルを指定する" width="640">
 
 入力に問題がなければ、「保存して閉じる」ボタンを選択してデータの追加を完了します。
 
-![入力項目を確認し「保存して閉じる」を選択する](./images/aoai-studio/add-data-source-008.png)
+<img src="./images/aoai-studio/add-data-source-008.png" alt="入力項目を確認し「保存して閉じる」を選択する" width="640">
 
 インジェストが完了するまでしばらく待ちます。
 
-<img src="./images/aoai-studio/add-data-source-009.png" alt="インジェストが進行中である" width="260">
+<img src="./images/aoai-studio/add-data-source-009.png" alt="インジェストが進行中である" width="360">
 
-<img src="./images/aoai-studio/add-data-source-010.png" alt="インジェストが完了した" width="260">
+<img src="./images/aoai-studio/add-data-source-010.png" alt="インジェストが完了した" width="360">
 
 インジェストが完了したら、チャットセッションで動作を確認してみましょう。
 
