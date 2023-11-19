@@ -94,8 +94,10 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 ![「サブスクリプション」「Azure　Blob ストレージ」「Azure AI Search」「インデックス名」を入力する](./images/aoai-studio/add-data-source-003.png)
 
 {% note %}
-もし、Azure Blob ストレージの欄の下に「Azure OpenAI には、このリソースにアクセスするためのアクセス許可が必要です」と表示される場合は「CORSをオンにする」ボタンを選択してアクセスを許可してください。
+
+**Note:** もし、Azure Blob ストレージの欄の下に「Azure OpenAI には、このリソースにアクセスするためのアクセス許可が必要です」と表示される場合は「CORSをオンにする」ボタンを選択してアクセスを許可してください。
 ![Azure Blob ストレージのCORSを有効にする](./images/aoai-studio/enable-storage-account-cors.png)
+
 {% endnote %}
 
 つぎに、ベクトル検索について項目を入力します。
@@ -113,8 +115,10 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 ![追加するファイルをアップロードする](./images/aoai-studio/add-data-source-005.png)
 
 {% note %}
-品川区の以下のページから「資源・ごみ品目一覧」を利用しています。
+
+**Note:** 品川区の以下のページから「資源・ごみ品目一覧」を利用しています。
 - [資源・ごみ品目一覧｜品川区](https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-kateigomi/20191127174730.html)
+
 {% endnote %}
 
 ファイルのアップロードが終わったら、「次へ」ボタンを選択します。
