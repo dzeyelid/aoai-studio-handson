@@ -36,6 +36,9 @@ resource aoai 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
         version: '2'
       }
     }
+    dependsOn: [
+      gpt_4_32k
+    ]
   }
 }
 

@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.23.1.45101",
-      "templateHash": "10849944909502761792"
+      "templateHash": "4171861065629535563"
     }
   },
   "parameters": {
@@ -66,7 +66,8 @@
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.CognitiveServices/accounts', format('aoai-{0}', variables('projectIdentifier')))]"
+        "[resourceId('Microsoft.CognitiveServices/accounts', format('aoai-{0}', variables('projectIdentifier')))]",
+        "[resourceId('Microsoft.CognitiveServices/accounts/deployments', format('aoai-{0}', variables('projectIdentifier')), 'gpt-4-32k')]"
       ]
     },
     {
