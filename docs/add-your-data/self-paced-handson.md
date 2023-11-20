@@ -149,3 +149,112 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 データ ソースを変えたい場合は、一度「データ ソースの削除」を選択して同様の作業をしてください。
 
 ## (オプション)REST APIでAdd your dataを試す
+
+GUIのプレイグラウンドだけでは飽きてしまった人には、REST APIについても簡単にご紹介します。
+
+プレイグラウンドの「チャット セッション」上部の「コードの表示」を選択すると、「JSON」「Python」「C#」「curl」でのサンプルコードが表示されます。
+
+まず、「システム メッセージ」やいくつか会話をした状態で、「JSON」を見てみましょう。ここには、リクエストボディのJSONデータが表示されます。
+
+<img src="./images/aoai-studio/show-code-002.png" alt="「システム メッセージ」や会話はこのようなJSON構造で送信される" width="400">
+
+Azure OpenAI側は状態を保持しません。そのため、システム メッセージや会話の状況は、`role`（`system`, `user`, `assistant`）を割当てて都度APIに渡しているのです。
+
+```json
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "あなたは、数学について詳しいアシスタントです。"
+    },
+    {
+      "role": "user",
+      "content": "こんにちは"
+    },
+    {
+      "role": "assistant",
+      "content": "こんにちは！数学に関する質問があれば何でもお答えします。どのようにお手伝いできるでしょうか？"
+    },
+    {
+      "role": "user",
+      "content": "サインの書き方は？"
+    },
+    {
+      "role": "assistant",
+      "content": "サインは、通常 \"sin\" と表記されます。例えば、角度 A のサインは \"sin A\" と書きます。これは三角関数の一つで、直角三角形において対辺の長さを斜辺の長さで割った値を表します。また、単位円（半径1の円）を用いて定義することもでき、その場合は角度が半径と形成する弧の長さに対応し、その弧の終点のy座標がsinの値となります。"
+    }
+  ],
+  "temperature": 0,
+  "top_p": 1,
+  "frequency_penalty": 0,
+  "presence_penalty": 0,
+  "max_tokens": 800,
+  "stop": null
+}
+```
+
+その他にパラメータについては、ドキュメントをご参照ください。
+
+- [Azure OpenAI Service の REST API リファレンス - Azure OpenAI | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/ai-services/openai/reference)
+
+つぎに、独自データを扱う場合を見てみましょう。「JSON」では確認できないので、「Python」「C#」「curl」でコードを確認します。ここでは、「curl」を例に進めます。
+
+「データの追加」を行った状態で、「curl」のコードを確認すると、リクエストボディに`dataSources`が追加されていることがわかります。
+
+<img src="./images/aoai-studio/show-code-003.png" alt="データの追加を行った場合の送信bodyを確認する" width="400">
+
+```json
+{
+  "dataSources": [
+    {
+      "type": "AzureCognitiveSearch",
+      "parameters": {
+        "endpoint": "<search_endpoint>",
+        "key": "<search_key>",
+        "indexName": "<search_index>"
+      }
+    }
+  ],
+  "messages": [
+    //...
+  ]
+}
+```
+
+ここで、REST APIのコールを試したい方は、端末にPostmanを用意しているのでご利用ください。
+
+以下にREST APIの構成を保存したCollectionとEnvironmentを用意しので、それぞれリンクを右クリックしてURLをコピーして、Postmanの「File」→「Import」にてインポートしてください。
+
+- Collection: [Chat completion(Add your data).postman_collection.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/update-202311/docs/add-your-data/samples/postman/Chat%20completion(Add%20your%20data).postman_collection.json)
+- Environment: [Azure OpenAI Studio hands-on.postman_environment.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/update-202311/docs/add-your-data/samples/postman/Azure%20OpenAI%20Studio%20hands-on.postman_environment.json)
+
+Environmentには「curl」のコードなどを参考に設定します。
+
+<img src="./images/aoai-studio/show-code-004.png" alt="REST APIをコールするのに必要な値を確認する" width="400">
+
+<img src="./images/aoai-studio/postman-environment-001.png" alt="PostmanのEnvironmentを設定する" width="400">
+
+| PostmanのVariable | 「curl」によるコード表示での値 |
+|----|----|
+| `azure-openai-key` | ウィンドウ下部の「キー」 |
+| `azure-openai-api-base` | コード中の`api_base` |
+| `azure-openai-deployment-id` | コード中の`deployment_id` |
+| `azure-search-resource-key` | ウィンドウ下部の「Azure Search リソース キー
+」 |
+| `azure-search-index` | コード中の`search_index` |
+| `azure-search-endpoint` | コード中の`search_endpoint` |
+
+Environmentが設定できたら、「Set as active environment」を選択して有効にしてください。
+
+<img src="./images/aoai-studio/show-code-004.png" alt="PostmanのEnvironmentを有効にする" width="400">
+
+Collectionの「Get completion with your data」を開き、リクエストボディの`messages`を自由に変更して、送信してみましょう。データ ソースの内容を参照したレスポンスを得られることを確認できます。
+
+![Postmanでデータ追加した状態のAzure OpenAIのREST APIを実行する](./images/aoai-studio/postman-send-request.png)
+
+さて、ここまでREST APIについてご紹介しましたが、これを実際の開発で利用することはちょっと大変です。REST APIを直接利用する場合はストリームの維持やレスポンスの分解・構成などを実装しなくてはなりません。そこで、各言語向けに提供されているAzure SDKが提供されているので、それを利用する方が現実的です。ご興味ある方はご参考ください。
+
+- [JavaScript](https://learn.microsoft.com/ja-jp/javascript/api/@azure/openai/?view=azure-node-preview&preserve-view=true)
+- [.NET](https://learn.microsoft.com/ja-jp/dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)
+- [Java](https://learn.microsoft.com/ja-jp/java/api/com.azure.ai.openai?view=azure-java-preview&preserve-view=true)
