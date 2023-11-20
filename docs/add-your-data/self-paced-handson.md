@@ -232,7 +232,7 @@ Environmentには「curl」のコードなどを参考に設定します。
 
 <img src="./images/aoai-studio/show-code-004.png" alt="REST APIをコールするのに必要な値を確認する" width="400">
 
-<img src="./images/aoai-studio/postman-environment-001.png" alt="PostmanのEnvironmentを設定する" width="400">
+<img src="./images/aoai-studio/postman-environment-001.png" alt="PostmanのEnvironmentを設定する" width="680">
 
 | PostmanのVariable | 「curl」によるコード表示での値 |
 |----|----|
