@@ -18,6 +18,10 @@ resource aoai 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
 
   resource gpt_4_32k 'deployments@2023-10-01-preview' = {
     name: 'gpt-4-32k'
+    sku: {
+      name: 'Standard'
+      capacity: 10
+    }
     properties: {
       model: {
         format: 'OpenAI'
@@ -29,6 +33,10 @@ resource aoai 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
 
   resource text_embedding_ada_002 'deployments@2023-10-01-preview' = {
     name: 'text-embedding-ada-002'
+    sku: {
+      name: 'Standard'
+      capacity: 50
+    }
     properties: {
       model: {
         format: 'OpenAI'

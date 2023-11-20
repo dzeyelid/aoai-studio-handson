@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.23.1.45101",
-      "templateHash": "4171861065629535563"
+      "templateHash": "16000717512643907481"
     }
   },
   "parameters": {
@@ -43,6 +43,10 @@
       "type": "Microsoft.CognitiveServices/accounts/deployments",
       "apiVersion": "2023-10-01-preview",
       "name": "[format('{0}/{1}', format('aoai-{0}', variables('projectIdentifier')), 'gpt-4-32k')]",
+      "sku": {
+        "name": "Standard",
+        "capacity": 10
+      },
       "properties": {
         "model": {
           "format": "OpenAI",
@@ -58,6 +62,10 @@
       "type": "Microsoft.CognitiveServices/accounts/deployments",
       "apiVersion": "2023-10-01-preview",
       "name": "[format('{0}/{1}', format('aoai-{0}', variables('projectIdentifier')), 'text-embedding-ada-002')]",
+      "sku": {
+        "name": "Standard",
+        "capacity": 50
+      },
       "properties": {
         "model": {
           "format": "OpenAI",
