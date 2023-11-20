@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "7f92bada-79af-486f-845f-9e44ff4e4f45",
+		"_postman_id": "0833c732-b98d-4493-b6bd-adf932a25dbc",
 		"name": "Chat completion(Add your data)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "4585739",
-		"_collection_link": "https://interstellar-shadow-3446.postman.co/workspace/Azure-OpenAI-Studio%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3%EF%BC%88Add-yo~21496900-1c86-4ea3-afb1-41ee10cc0356/collection/4585739-7f92bada-79af-486f-845f-9e44ff4e4f45?action=share&source=collection_link&creator=4585739"
+		"_collection_link": "https://interstellar-shadow-3446.postman.co/workspace/Azure-OpenAI-Studio%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3%EF%BC%88Add-yo~21496900-1c86-4ea3-afb1-41ee10cc0356/collection/4585739-0833c732-b98d-4493-b6bd-adf932a25dbc?action=share&source=collection_link&creator=4585739"
 	},
 	"item": [
 		{
@@ -25,7 +25,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dataSources\": [\r\n        {\r\n            \"type\": \"AzureCognitiveSearch\",\r\n            \"parameters\": {\r\n                \"endpoint\": \"{{azure-search-endpoint}}\",\r\n                \"key\": \"{{azure-search-resource-key}}\",\r\n                \"indexName\": \"{{azure-search-index}}\"\r\n            }\r\n        }\r\n    ],\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"You are an AI assistant that helps people find information.\"\r\n        },\r\n        {\r\n            \"role\":\"user\",\r\n            \"content\":\"ぬいぐるみの捨て方は？\"\r\n        }\r\n    ]\r\n}"
+					"raw": "{\r\n    \"dataSources\": [\r\n        {\r\n            \"type\": \"AzureCognitiveSearch\",\r\n            \"parameters\": {\r\n                \"endpoint\": \"{{azure-search-endpoint}}\",\r\n                \"key\": \"{{azure-search-resource-key}}\",\r\n                \"indexName\": \"{{azure-search-index}}\"\r\n            }\r\n        }\r\n    ],\r\n    \"messages\": [\r\n        {\r\n            \"role\":\"user\",\r\n            \"content\":\"ぬいぐるみの捨て方は？\"\r\n        }\r\n    ]\r\n}"
 				},
 				"url": {
 					"raw": "https://aoai-azure-tech-day-dev.openai.azure.com/openai/deployments/gpt-4-32k/extensions/chat/completions?api-version=2023-07-01-preview",
