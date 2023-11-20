@@ -10,6 +10,8 @@
   - AI Search
 - 端末に下記ソフトウェアをインストールする
   - [Postman](https://www.postman.com/downloads/)
+- PDFをダウンロードしておく
+  - https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-kateigomi/20191127174730.html
 
 ## 当日（セッション前）
 
