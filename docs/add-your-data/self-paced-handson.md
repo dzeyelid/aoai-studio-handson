@@ -239,8 +239,7 @@ Environmentには「curl」のコードなどを参考に設定します。
 | `azure-openai-key` | ウィンドウ下部の「キー」 |
 | `azure-openai-api-base` | コード中の`api_base` |
 | `azure-openai-deployment-id` | コード中の`deployment_id` |
-| `azure-search-resource-key` | ウィンドウ下部の「Azure Search リソース キー
-」 |
+| `azure-search-resource-key` | ウィンドウ下部の「Azure Search リソース キー」 |
 | `azure-search-index` | コード中の`search_index` |
 | `azure-search-endpoint` | コード中の`search_endpoint` |
 
