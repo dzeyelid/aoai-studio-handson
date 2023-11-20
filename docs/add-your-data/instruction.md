@@ -11,11 +11,11 @@
 - 端末に下記ソフトウェアをインストールする
   - [Postman](https://www.postman.com/downloads/)
 - PDFをダウンロードしておく
-  - https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-kateigomi/20191127174730.html
+  - [資源・ごみ品目一覧｜品川区](https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-kateigomi/20191127174730.html)の「参考：資源・ごみ品目一覧（PDF：360KB）」から「2023shigengomihinmoku.pdf」をダウンロードする
 
 ## 当日（セッション前）
 
-- Azure OpenAI Studioを開く
 - Storage Accountの「fileupload-sources」にあるファイルを削除する
 - AI Searchのインデックスを削除する（念のため）
+- Azure OpenAI Studioを開く
 - Postmanを起動しておく
