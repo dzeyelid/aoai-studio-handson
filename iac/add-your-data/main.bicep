@@ -16,8 +16,8 @@ resource aoai 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
   }
   kind: 'OpenAI'
 
-  resource gpt_4_32k 'deployments@2023-10-01-preview' = {
-    name: 'gpt-4-32k'
+  resource gpt_35_turbo_16k 'deployments@2023-10-01-preview' = {
+    name: 'gpt-35-turbo-16k'
     sku: {
       name: 'Standard'
       capacity: 10
@@ -25,7 +25,7 @@ resource aoai 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
     properties: {
       model: {
         format: 'OpenAI'
-        name: 'gpt-4-32k'
+        name: 'gpt-35-turbo-16k'
         version: '0613'
       }
     }
@@ -45,7 +45,7 @@ resource aoai 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
       }
     }
     dependsOn: [
-      gpt_4_32k
+      gpt_35_turbo_16k
     ]
   }
 }

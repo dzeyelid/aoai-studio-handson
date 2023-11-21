@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.23.1.45101",
-      "templateHash": "16000717512643907481"
+      "templateHash": "3902580302472412881"
     }
   },
   "parameters": {
@@ -42,7 +42,7 @@
     {
       "type": "Microsoft.CognitiveServices/accounts/deployments",
       "apiVersion": "2023-10-01-preview",
-      "name": "[format('{0}/{1}', format('aoai-{0}', variables('projectIdentifier')), 'gpt-4-32k')]",
+      "name": "[format('{0}/{1}', format('aoai-{0}', variables('projectIdentifier')), 'gpt-35-turbo-16k')]",
       "sku": {
         "name": "Standard",
         "capacity": 10
@@ -50,7 +50,7 @@
       "properties": {
         "model": {
           "format": "OpenAI",
-          "name": "gpt-4-32k",
+          "name": "gpt-35-turbo-16k",
           "version": "0613"
         }
       },
@@ -75,7 +75,7 @@
       },
       "dependsOn": [
         "[resourceId('Microsoft.CognitiveServices/accounts', format('aoai-{0}', variables('projectIdentifier')))]",
-        "[resourceId('Microsoft.CognitiveServices/accounts/deployments', format('aoai-{0}', variables('projectIdentifier')), 'gpt-4-32k')]"
+        "[resourceId('Microsoft.CognitiveServices/accounts/deployments', format('aoai-{0}', variables('projectIdentifier')), 'gpt-35-turbo-16k')]"
       ]
     },
     {
