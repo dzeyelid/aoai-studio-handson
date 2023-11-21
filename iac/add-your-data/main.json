@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.23.1.45101",
-      "templateHash": "3902580302472412881"
+      "templateHash": "17266496978944133806"
     }
   },
   "parameters": {
@@ -32,6 +32,17 @@
       "metadata": {
         "description": "ストレージアカウントのSKUを選択してください"
       }
+    },
+    "llmModelName": {
+      "type": "string",
+      "defaultValue": "gpt-35-turbo-16k",
+      "allowedValues": [
+        "gpt-4-32k",
+        "gpt-35-turbo-16k"
+      ],
+      "metadata": {
+        "description": "チャットで利用するLLMモデルを選択してください"
+      }
     }
   },
   "variables": {
@@ -39,25 +50,6 @@
     "projectIdentifier": "[uniqueString(resourceGroup().id, variables('projectType'))]"
   },
   "resources": [
-    {
-      "type": "Microsoft.CognitiveServices/accounts/deployments",
-      "apiVersion": "2023-10-01-preview",
-      "name": "[format('{0}/{1}', format('aoai-{0}', variables('projectIdentifier')), 'gpt-35-turbo-16k')]",
-      "sku": {
-        "name": "Standard",
-        "capacity": 10
-      },
-      "properties": {
-        "model": {
-          "format": "OpenAI",
-          "name": "gpt-35-turbo-16k",
-          "version": "0613"
-        }
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.CognitiveServices/accounts', format('aoai-{0}', variables('projectIdentifier')))]"
-      ]
-    },
     {
       "type": "Microsoft.CognitiveServices/accounts/deployments",
       "apiVersion": "2023-10-01-preview",
@@ -74,8 +66,49 @@
         }
       },
       "dependsOn": [
+        "[resourceId('Microsoft.CognitiveServices/accounts', format('aoai-{0}', variables('projectIdentifier')))]"
+      ]
+    },
+    {
+      "condition": "[equals(parameters('llmModelName'), 'gpt-4-32k')]",
+      "type": "Microsoft.CognitiveServices/accounts/deployments",
+      "apiVersion": "2023-10-01-preview",
+      "name": "[format('{0}/{1}', format('aoai-{0}', variables('projectIdentifier')), 'gpt-4-32k')]",
+      "sku": {
+        "name": "Standard",
+        "capacity": 10
+      },
+      "properties": {
+        "model": {
+          "format": "OpenAI",
+          "name": "gpt-4-32k",
+          "version": "0613"
+        }
+      },
+      "dependsOn": [
         "[resourceId('Microsoft.CognitiveServices/accounts', format('aoai-{0}', variables('projectIdentifier')))]",
-        "[resourceId('Microsoft.CognitiveServices/accounts/deployments', format('aoai-{0}', variables('projectIdentifier')), 'gpt-35-turbo-16k')]"
+        "[resourceId('Microsoft.CognitiveServices/accounts/deployments', format('aoai-{0}', variables('projectIdentifier')), 'text-embedding-ada-002')]"
+      ]
+    },
+    {
+      "condition": "[equals(parameters('llmModelName'), 'gpt-35-turbo-16k')]",
+      "type": "Microsoft.CognitiveServices/accounts/deployments",
+      "apiVersion": "2023-10-01-preview",
+      "name": "[format('{0}/{1}', format('aoai-{0}', variables('projectIdentifier')), 'gpt-35-turbo-16k')]",
+      "sku": {
+        "name": "Standard",
+        "capacity": 10
+      },
+      "properties": {
+        "model": {
+          "format": "OpenAI",
+          "name": "gpt-35-turbo-16k",
+          "version": "0613"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.CognitiveServices/accounts', format('aoai-{0}', variables('projectIdentifier')))]",
+        "[resourceId('Microsoft.CognitiveServices/accounts/deployments', format('aoai-{0}', variables('projectIdentifier')), 'text-embedding-ada-002')]"
       ]
     },
     {
