@@ -11,7 +11,7 @@
 - 端末に下記ソフトウェアをインストールする
   - [Postman](https://www.postman.com/downloads/)
 - PDFをダウンロードしておく
-  - [資源・ごみ品目一覧｜品川区](https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-kateigomi/20191127174730.html)の「参考：資源・ごみ品目一覧（PDF：360KB）」から「2023shigengomihinmoku.pdf」をダウンロードする
+  - [Surface Pro 4 ユーザー ガイド](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide_ja-jp.pdf)から「surface-pro-4-user-guide_ja-jp.pdf」をダウンロードする
 
 ## 当日（セッション前）
 
