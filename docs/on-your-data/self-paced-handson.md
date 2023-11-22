@@ -225,8 +225,8 @@ Azure OpenAI側は状態を保持しません。そのため、システム メ�
 
 以下にREST APIの構成を保存したCollectionとEnvironmentを用意しので、それぞれリンクを右クリックしてURLをコピーして、Postmanの「File」→「Import」にてインポートしてください。
 
-- Collection: [Chat completion(On your data).postman_collection.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/update-202311/docs/on-your-data/samples/postman/Chat%20completion(On%20your%20data).postman_collection.json)
-- Environment: [Azure OpenAI Studio hands-on.postman_environment.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/update-202311/docs/on-your-data/samples/postman/Azure%20OpenAI%20Studio%20hands-on.postman_environment.json)
+- Collection: [Chat completion(On your data).postman_collection.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/main/docs/on-your-data/samples/postman/Chat%20completion(On%20your%20data).postman_collection.json)
+- Environment: [Azure OpenAI Studio hands-on.postman_environment.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/main/docs/on-your-data/samples/postman/Azure%20OpenAI%20Studio%20hands-on.postman_environment.json)
 
 Environmentには「curl」のコードなどを参考に設定します。
 
