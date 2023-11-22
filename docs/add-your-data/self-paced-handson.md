@@ -3,8 +3,8 @@
 Azure OpenAI Studioを利用して、チャット（会話）形式のモデルを体験してみましょう。
 
 - Azure OpenAI StudioでGPT-4モデルを試す
-- Azure OpenAI StudioでAdd your dataを試す
-- (オプション)REST APIでAdd your dataを試す
+- Azure OpenAI StudioでOn your dataを試す
+- (オプション)REST APIでOn your dataを試す
 
 ## 注意事項
 
@@ -33,7 +33,7 @@ Azure OpenAI Serviceはトークン数などに制限があります。本ハン
 | モデル名 | 説明 |
 |----|----|
 | `gpt-4-32k` | GPT-4のモデル。チャット（会話）ができる |
-| `text-embedding-ada-002` | 後半の「Add your data」でベクトル検索を実装する際に利用する |
+| `text-embedding-ada-002` | 後半の「On your data」でベクトル検索を実装する際に利用する |
 
 ![Azure OpenAI Studioでデプロイを確認する](./images/aoai-studio/deployment-001.png)
 
@@ -68,9 +68,9 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 - 「システム メッセージ」にこのチャットに役割や振る舞いを指定して、会話してみましょう。
   - 例: 「あなたは、数学について詳しいアシスタントです。」
 
-## Add your dataを試す
+## On your dataを試す
 
-つぎに、独自のデータに基づいた会話ができる「Add your data」を試しましょう！
+つぎに、独自のデータに基づいた会話ができる「On your data」を試しましょう！
 
 「アシスタントのセットアップ」の「データの追加（プレビュー）」タブを開き、「データ ソースの追加」ボタンを選択します。
 
@@ -148,7 +148,7 @@ ChatGPTのプレイグラウンドでは、「アシスタント セットアッ
 
 データ ソースを変えたい場合は、一度「データ ソースの削除」を選択して同様の作業をしてください。
 
-## (オプション)REST APIでAdd your dataを試す
+## (オプション)REST APIでOn your dataを試す
 
 GUIのプレイグラウンドだけでは飽きてしまった人には、REST APIについても簡単にご紹介します。
 
@@ -225,8 +225,8 @@ Azure OpenAI側は状態を保持しません。そのため、システム メ�
 
 以下にREST APIの構成を保存したCollectionとEnvironmentを用意しので、それぞれリンクを右クリックしてURLをコピーして、Postmanの「File」→「Import」にてインポートしてください。
 
-- Collection: [Chat completion(Add your data).postman_collection.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/update-202311/docs/add-your-data/samples/postman/Chat%20completion(Add%20your%20data).postman_collection.json)
-- Environment: [Azure OpenAI Studio hands-on.postman_environment.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/update-202311/docs/add-your-data/samples/postman/Azure%20OpenAI%20Studio%20hands-on.postman_environment.json)
+- Collection: [Chat completion(On your data).postman_collection.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/main/docs/add-your-data/samples/postman/Chat%20completion(On%20your%20data).postman_collection.json)
+- Environment: [Azure OpenAI Studio hands-on.postman_environment.json](https://raw.githubusercontent.com/dzeyelid/aoai-studio-handson/main/docs/add-your-data/samples/postman/Azure%20OpenAI%20Studio%20hands-on.postman_environment.json)
 
 Environmentには「curl」のコードなどを参考に設定します。
 
@@ -247,7 +247,7 @@ Environmentが設定できたら、「Set as active environment」を選択し�
 
 <img src="./images/aoai-studio/show-code-004.png" alt="PostmanのEnvironmentを有効にする" width="400">
 
-Collectionの「Get completion with your data」を開き、リクエストボディの`messages`を自由に変更して、送信してみましょう。データ ソースの内容を参照したレスポンスを得られることを確認できます。
+Collectionの「Get completion on your data」を開き、リクエストボディの`messages`を自由に変更して、送信してみましょう。データ ソースの内容を参照したレスポンスを得られることを確認できます。
 
 ![Postmanでデータ追加した状態のAzure OpenAIのREST APIを実行する](./images/aoai-studio/postman-send-request.png)
 
