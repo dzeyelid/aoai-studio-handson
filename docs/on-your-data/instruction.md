@@ -2,7 +2,7 @@
 
 ## 前日
 
-- [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdzeyelid%2Faoai-studio-handson%2Fmain%2Fiac%2Fadd-your-data%2Fmain.json)を使い、Azureに下記のリソースを作成する
+- [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdzeyelid%2Faoai-studio-handson%2Fmain%2Fiac%2Fon-your-data%2Fmain.json)を使い、Azureに下記のリソースを作成する
   - Azure OpenAI
     - デプロイ `gpt-4-32k`
     - デプロイ `text-embedding-ada-002`
